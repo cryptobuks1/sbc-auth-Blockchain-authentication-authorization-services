@@ -28,6 +28,22 @@ export default class OrgModule extends VuexModule {
   tokenError = false
 
   @Mutation
+  public reset () {
+    this.list = []
+    this.resending = false
+    this.sentInvitations = []
+    this.failedInvitations = []
+    this.currentAccountSettings = undefined
+    this.currentOrganization = undefined
+    this.currentMembership = undefined
+    this.activeOrgMembers = []
+    this.pendingOrgMembers = []
+    this.pendingOrgInvitations = []
+    this.invalidInvitationToken = false
+    this.tokenError = false
+  }
+
+  @Mutation
   public setActiveOrgMembers (activeMembers: Member[]) {
     this.activeOrgMembers = activeMembers
   }

@@ -27,6 +27,12 @@ export default class BusinessModule extends VuexModule {
     this.businesses = businesses
   }
 
+  @Mutation
+  public reset () {
+    this.currentBusiness = undefined
+    this.businesses = []
+  }
+
   @Action({ commit: 'setBusinesses', rawError: true })
   public async syncBusinesses (organization?: Organization): Promise<Business[]> {
     if (!organization) {

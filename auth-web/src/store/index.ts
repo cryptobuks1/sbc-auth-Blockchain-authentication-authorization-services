@@ -27,6 +27,14 @@ const storeOptions: StoreOptions<RootState> = {
       state.loading = false
     }
   },
+  actions: {
+    clearAll ({ commit }) {
+      commit('business/reset')
+      commit('user/reset')
+      commit('org/reset')
+      commit('staff/reset')
+    }
+  },
   modules: {
     business: BusinessModule,
     user: UserModule,

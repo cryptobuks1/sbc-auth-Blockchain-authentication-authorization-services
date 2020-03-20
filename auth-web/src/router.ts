@@ -175,9 +175,9 @@ router.beforeEach((to, from, next) => {
     }
 
     if (to.matched.some(record => record.meta.requiresActiveAccount)) {
-      if (currentAccountSettings && currentMembership.membershipStatus === MembershipStatus.Pending) {
+      if (currentAccountSettings && currentMembership?.membershipStatus === MembershipStatus.Pending) {
         return next({ path: `/${Pages.PENDING_APPROVAL}/${currentAccountSettings?.label}` })
-      } else if (!currentOrganization || currentMembership.membershipStatus !== MembershipStatus.Active) {
+      } else if (!currentOrganization || currentMembership?.membershipStatus !== MembershipStatus.Active) {
         return next({ path: `/${Pages.CREATE_ACCOUNT}` })
       }
     }

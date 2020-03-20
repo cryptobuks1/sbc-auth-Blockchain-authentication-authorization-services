@@ -22,6 +22,14 @@ export default class UserModule extends VuexModule {
   redirectAfterLoginUrl: string = ''
 
   @Mutation
+  public reset () {
+    this.currentUser = undefined
+    this.userProfile = undefined
+    this.userContact = undefined
+    this.redirectAfterLoginUrl = ''
+  }
+
+  @Mutation
   public setUserProfile (userProfile: User) {
     this.userProfile = userProfile
   }

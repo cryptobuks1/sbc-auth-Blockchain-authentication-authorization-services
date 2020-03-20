@@ -11,6 +11,12 @@ export default class StaffModule extends VuexModule {
   accountTypes: AccountType[] = []
 
   @Mutation
+  public reset () {
+    this.products = []
+    this.accountTypes = []
+  }
+
+  @Mutation
   public setProducts (products: ProductCode[]) {
     this.products = products
   }

@@ -171,8 +171,11 @@ export default class App extends Mixins(NextPageMixin) {
     if (this.$store.getters['auth/isAuthenticated']) {
       await this.syncUser()
       this.setupNavigationBar()
-      await this.tokenService.init()
+      await this.tokenService.init(this.$store)
       this.tokenService.scheduleRefreshTimer()
+    } else {
+      // Ensure store is empty is not authenticated
+      this.$store.dispatch('clearAll')
     }
     this.$store.commit('loadComplete')
   }
